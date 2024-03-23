@@ -1,0 +1,15 @@
+[Unit]
+Description=Pika Poka Helper Bot
+After=network.target
+
+[Service]
+Environment="NODE_ENV=production"
+WorkingDirectory=/PATH/TO/pikapokabot
+ExecStart=/usr/bin/node /PATH/TO/pikapokabot/index.js
+Restart=always
+RestartSec=5
+# User=your_username
+# Group=your_groupname
+
+[Install]
+WantedBy=multi-user.target
