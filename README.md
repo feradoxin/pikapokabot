@@ -61,6 +61,7 @@ Check NPM version:
 
     - Create a `conf.json` file in the root directory of the project:
     
+        ```
         cp conf.json.example conf.json
 
     - Edit the JSON file to enable admin accounts to command the bot
