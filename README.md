@@ -12,6 +12,7 @@ Before you begin, ensure you have the following installed on your system:
 ## Installation
 
 1. **Install prequisite packages**
+
 Installing prerequisite packages:
 
     ```
@@ -45,9 +46,10 @@ Check NPM version:
 
 3. **Install dependencies:**
 
+    ```
     cd pikapokabot
     npm install
-    
+    ```
 
 4. **Set up Google Sheets API:**
     - Follow the [Google Sheets API Quickstart Guide](https://developers.google.com/sheets/api/quickstart/nodejs) to enable the Google Sheets API and download the `credentials.json` file.
