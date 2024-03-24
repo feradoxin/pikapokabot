@@ -30,12 +30,12 @@ Before you begin, ensure you have the following installed on your system:
 
 2. **Clone the repository:**
 
-    git clone https://github.com/feradoxin/pikapokabot.git
+        git clone https://github.com/feradoxin/pikapokabot.git
 
 3. **Install dependencies:**
 
-    cd pikapokabot
-    npm install
+        cd pikapokabot
+        npm install
 
 4. **Set up Google Sheets API:**
 
@@ -46,7 +46,7 @@ Before you begin, ensure you have the following installed on your system:
 
     - Create a `.env` file in the root directory of the project:
         
-        cp .env.example .env
+            cp .env.example .env
         
     - Edit the following variables in the `.env` file:
 
@@ -57,7 +57,7 @@ Before you begin, ensure you have the following installed on your system:
 
     - Create a `config.json` file in the root directory of the project:
     
-        cp config.json.example config.json
+            cp config.json.example config.json
 
     - Edit the JSON file to enable admin accounts to command the bot
     
