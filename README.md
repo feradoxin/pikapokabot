@@ -15,39 +15,27 @@ Before you begin, ensure you have the following installed on your system:
 
 Installing prerequisite packages:
 
-    ```bash
     sudo apt update
     sudo apt install curl git
     curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
     sudo apt install nodejs
-    ```
 
 Checking node.js version to verify installation:
 
-    ```bash
     node -v # v18.14.0  # Your version might be newer.
-    ```
-    
 
 Check NPM version:
 
-    ```bash
     npm -v # 9.3.1  # Your version might be newer.
-    ```
-    
 
 2. **Clone the repository:**
 
-    ```bash
     git clone https://github.com/feradoxin/pikapokabot.git
-    ```
 
 3. **Install dependencies:**
 
-    ```bash
     cd pikapokabot
     npm install
-    ```
 
 4. **Set up Google Sheets API:**
     - Follow the [Google Sheets API Quickstart Guide](https://developers.google.com/sheets/api/quickstart/nodejs) to enable the Google Sheets API and download the `credentials.json` file.
@@ -56,9 +44,7 @@ Check NPM version:
 5. **Set up environment variables:**
     - Create a `.env` file in the root directory of the project:
         
-        ```bash
         cp .env.example .env
-        ```
         
     - Edit the following variables in the `.env` file:
 
@@ -69,9 +55,7 @@ Check NPM version:
 
     - Create a `config.json` file in the root directory of the project:
     
-        `
         cp config.json.example config.json
-        ```
 
     - Edit the JSON file to enable admin accounts to command the bot
     
