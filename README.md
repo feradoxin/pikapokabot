@@ -13,20 +13,20 @@ Before you begin, ensure you have the following installed on your system:
 
 1. **Install prequisite packages**
 
-Installing prerequisite packages:
+    Installing prerequisite packages:
 
-    sudo apt update
-    sudo apt install curl git
-    curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
-    sudo apt install nodejs
+        sudo apt update
+        sudo apt install curl git
+        curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+        sudo apt install nodejs
 
-Checking node.js version to verify installation:
+    Checking node.js version to verify installation:
 
-    node -v # v18.14.0  # Your version might be newer.
+        node -v # v18.14.0  # Your version might be newer.
 
-Check NPM version:
+    Check NPM version:
 
-    npm -v # 9.3.1  # Your version might be newer.
+        npm -v # 9.3.1  # Your version might be newer.
 
 2. **Clone the repository:**
 
@@ -38,10 +38,12 @@ Check NPM version:
     npm install
 
 4. **Set up Google Sheets API:**
+
     - Follow the [Google Sheets API Quickstart Guide](https://developers.google.com/sheets/api/quickstart/nodejs) to enable the Google Sheets API and download the `credentials.json` file.
     - Place the `credentials.json` file in the root directory of the project.
 
 5. **Set up environment variables:**
+
     - Create a `.env` file in the root directory of the project:
         
         cp .env.example .env
@@ -66,37 +68,39 @@ Check NPM version:
        
 
 ## Configuration - Check the following
-- For `.env`:
 
-    - Replace `your_telegram_bot_token` with your Telegram bot token obtained from the BotFather.
-    - Replace `your_google_client_email` and `your_google_private_key` with your Google Service Account credentials.
-    - Replace `your_google_spreadsheet_id` with the ID of the Google Sheets spreadsheet where you want to store orders.
+    - For `.env`:
 
-- For `conf.json`:
+        - Replace `your_telegram_bot_token` with your Telegram bot token obtained from the BotFather.
+        - Replace `your_google_client_email` and `your_google_private_key` with your Google Service Account credentials.
+        - Replace `your_google_spreadsheet_id` with the ID of the Google Sheets spreadsheet where you want to store orders.
 
-    - Replace `admin1` and `admin2` with the username of admins (telegram handle @admin1 or @admin2).
-    - Remember to remove the "@" before the username
-    - Add / remove admin accounts as needed
-    - You can configure the `keyword` here or by calling `/keyword` in chat
+    - For `conf.json`:
 
-- For `pikapokabot.service`:
+        - Replace `admin1` and `admin2` with the username of admins (telegram handle @admin1 or @admin2).
+        - Remember to remove the "@" before the username
+        - Add / remove admin accounts as needed
+        - You can configure the `keyword` here or by calling `/keyword` in chat
 
-    - Edit path in `WorkingDirectory` and `ExecStart`
+    - For `pikapokabot.service`:
 
-- DEBUG mode:
+        - Edit path in `WorkingDirectory` and `ExecStart`
 
-    - In `log4js.config.js`, change the logging level:
+    - DEBUG mode:
 
-        messageHandler: { appenders: ['file', 'console'], level: 'info' } // Log level: info
-        messageHandler: { appenders: ['file', 'console'], level: 'debug' } // Log level: debug
+        - In `log4js.config.js`, change the logging level:
+
+            messageHandler: { appenders: ['file', 'console'], level: 'info' } // Log level: info
+            messageHandler: { appenders: ['file', 'console'], level: 'debug' } // Log level: debug
 
 
 ## Running the Bot
-Copy the system service file to systemd and enable the service.
-    
-    sudo cp ./pikapokabot.service /etc/systemd/system/pikapokabot.service
-    sudo systemctl enable pikapokabot.service
-    sudo systemctl start pikapokabot.service
+
+    Copy the system service file to systemd and enable the service.
+        
+        sudo cp ./pikapokabot.service /etc/systemd/system/pikapokabot.service
+        sudo systemctl enable pikapokabot.service
+        sudo systemctl start pikapokabot.service
     
 
 ## License
