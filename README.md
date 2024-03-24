@@ -20,7 +20,7 @@ Installing prerequisite packages:
     sudo apt install curl git
     curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
     sudo apt install nodejs
-    ```    
+    ```
 
 Checking node.js version to verify installation:
 
