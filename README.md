@@ -69,29 +69,29 @@ Before you begin, ensure you have the following installed on your system:
 
 ## Configuration - Check the following
 
-    - For `.env`:
+- For `.env`:
 
-        - Replace `your_telegram_bot_token` with your Telegram bot token obtained from the BotFather.
-        - Replace `your_google_client_email` and `your_google_private_key` with your Google Service Account credentials.
-        - Replace `your_google_spreadsheet_id` with the ID of the Google Sheets spreadsheet where you want to store orders.
+    - Replace `your_telegram_bot_token` with your Telegram bot token obtained from the BotFather.
+    - Replace `your_google_client_email` and `your_google_private_key` with your Google Service Account credentials.
+    - Replace `your_google_spreadsheet_id` with the ID of the Google Sheets spreadsheet where you want to store orders.
 
-    - For `conf.json`:
+- For `conf.json`:
 
-        - Replace `admin1` and `admin2` with the username of admins (telegram handle @admin1 or @admin2).
-        - Remember to remove the "@" before the username
-        - Add / remove admin accounts as needed
-        - You can configure the `keyword` here or by calling `/keyword` in chat
+    - Replace `admin1` and `admin2` with the username of admins (telegram handle @admin1 or @admin2).
+    - Remember to remove the "@" before the username
+    - Add / remove admin accounts as needed
+    - You can configure the `keyword` here or by calling `/keyword` in chat
 
-    - For `pikapokabot.service`:
+- For `pikapokabot.service`:
 
-        - Edit path in `WorkingDirectory` and `ExecStart`
+    - Edit path in `WorkingDirectory` and `ExecStart`
 
-    - DEBUG mode:
+- DEBUG mode:
 
-        - In `log4js.config.js`, change the logging level:
+    - In `log4js.config.js`, change the logging level:
 
-            messageHandler: { appenders: ['file', 'console'], level: 'info' } // Log level: info
-            messageHandler: { appenders: ['file', 'console'], level: 'debug' } // Log level: debug
+        messageHandler: { appenders: ['file', 'console'], level: 'info' } // Log level: info
+        messageHandler: { appenders: ['file', 'console'], level: 'debug' } // Log level: debug
 
 
 ## Running the Bot
