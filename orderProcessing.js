@@ -81,7 +81,7 @@ function extractOrderFields(message, keyword) {
   for (const line of lines) {
     if (keywordFound && line.trim() !== '') {
       // Check if the line starts with a customer name followed by a colon
-      if (/^\S+\s*:/.test(line.trim())) {
+      if (/^[a-zA-Z]+\s*:/.test(line.trim())) {
         // If there's already an order field, push it to the array
         if (currentOrderField !== '') {
           orderFields.push(currentOrderField.trim());
@@ -89,8 +89,9 @@ function extractOrderFields(message, keyword) {
         // Start a new order field with this line
         currentOrderField = line.trim();
       } else {
-        // If it doesn't start with a customer name, consider it as part of the previous order field
-        currentOrderField += '\n' + line.trim();
+        // Ignore lines that don't start with a customer name
+        // Reset currentOrderField to start a new order field
+        currentOrderField = '';
       }
     } else if (line.toLowerCase().includes(keyword.toLowerCase())) {
       // Set flag to true once keyword is found
