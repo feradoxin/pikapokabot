@@ -81,7 +81,7 @@ function extractOrderFields(message, keyword) {
   for (const line of lines) {
     if (keywordFound && line.trim() !== '') {
       // Check if the line starts with a customer name followed by a colon
-      if (/^[a-zA-Z]+\s*:/.test(line.trim())) {
+      if (/^\S+\s*:/.test(line.trim())) {
         // If there's already an order field, push it to the array
         if (currentOrderField !== '') {
           orderFields.push(currentOrderField.trim());
