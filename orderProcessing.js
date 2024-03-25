@@ -93,8 +93,9 @@ function extractOrderFields(message, keyword) {
     }
   }
 
-  // Return the array of extracted order fields
+  // Verbose logging for debugging
   logger.debug(`Order Fields Extracted:`, orderFields);
+
   return orderFields;
 }
 
@@ -120,6 +121,10 @@ function processOrder(message, keyword, onlyLast = false) {
         const item = order.slice(0, lastSpaceIndex);
         const quantityText = order.slice(lastSpaceIndex + 1);
         const quantity = parseInt(quantityText) || 1; // Default quantity to 1 if not specified
+
+        // Verbose logging for debugging
+        logger.debug(`Processing order: ${item} - Quantity: ${quantity}`);
+
         return { item: item.trim(), quantity };
       });
 
@@ -128,9 +133,10 @@ function processOrder(message, keyword, onlyLast = false) {
     }
   }
 
-  // Return the array of processed orders
+  // Verbose logging for debugging
   logger.debug('Processed order data:', processedOrders);
   logger.info('Order data processed from unformatted chunk. Enabled debug mode to see order data.');
+
   return onlyLast ? [processedOrders.pop()] : processedOrders;
 }
 
