@@ -6,13 +6,13 @@ log4js.configure({
     console: { type: 'console' }
   },
   categories: {
-    default: { appenders: ['file', 'console'], level: 'info' },
-    commandHandler: { appenders: ['file', 'console'], level: 'info' },
-    gSheetApiHandler: { appenders: ['file', 'console'], level: 'info' },
-    messageHandler: { appenders: ['file', 'console'], level: 'info' },
-    index: { appenders: ['file', 'console'], level: 'info' },
-    orderProcessing: { appenders: ['file', 'console'], level: 'info' },
-    database: { appenders: ['file', 'console'], level: 'info' }
+    default: { appenders: ['file', 'console'], level: 'debug' },
+    commandHandler: { appenders: ['file', 'console'], level: 'debug' },
+    gSheetApiHandler: { appenders: ['file', 'console'], level: 'debug' },
+    messageHandler: { appenders: ['file', 'console'], level: 'debug' },
+    index: { appenders: ['file', 'console'], level: 'debug' },
+    orderProcessing: { appenders: ['file', 'console'], level: 'debug' },
+    database: { appenders: ['file', 'console'], level: 'debug' }
   }
 });
 
