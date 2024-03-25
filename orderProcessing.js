@@ -77,15 +77,20 @@ function extractOrderFields(message, keyword) {
   let keywordFound = false;
 
   // Iterate through each line to find the keyword and extract subsequent lines
+  let currentOrderField = ''; // Track current order field
   for (const line of lines) {
     if (keywordFound && line.trim() !== '') {
       // Check if the line starts with a customer name followed by a colon
       if (/^[a-zA-Z]+\s*:/.test(line.trim())) {
-        // Add the line to the array of extracted order fields
-        orderFields.push(line.trim());
+        // If there's already an order field, push it to the array
+        if (currentOrderField !== '') {
+          orderFields.push(currentOrderField.trim());
+        }
+        // Start a new order field with this line
+        currentOrderField = line.trim();
       } else {
         // If it doesn't start with a customer name, consider it as part of the previous order field
-        orderFields[orderFields.length - 1] += '\n' + line.trim();
+        currentOrderField += '\n' + line.trim();
       }
     } else if (line.toLowerCase().includes(keyword.toLowerCase())) {
       // Set flag to true once keyword is found
@@ -93,9 +98,13 @@ function extractOrderFields(message, keyword) {
     }
   }
 
-  // Verbose logging for debugging
-  logger.debug(`Order Fields Extracted:`, orderFields);
+  // Push the last order field to the array
+  if (currentOrderField !== '') {
+    orderFields.push(currentOrderField.trim());
+  }
 
+  // Return the array of extracted order fields
+  logger.debug(`Order Fields Extracted:`, orderFields);
   return orderFields;
 }
 
