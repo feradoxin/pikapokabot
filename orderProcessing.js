@@ -75,33 +75,17 @@ function extractOrderFields(message, keyword) {
   // Split the message into lines
   const lines = message.split('\n');
   let keywordFound = false;
+  let currentOrderField = ''; // Track current order field
 
   // Iterate through each line to find the keyword and extract subsequent lines
-  let currentOrderField = ''; // Track current order field
   for (const line of lines) {
     if (keywordFound && line.trim() !== '') {
-      // Check if the line starts with a customer name followed by a colon
-      if (/^[a-zA-Z]+\s*:/.test(line.trim())) {
-        // If there's already an order field, push it to the array
-        if (currentOrderField !== '') {
-          orderFields.push(currentOrderField.trim());
-        }
-        // Start a new order field with this line
-        currentOrderField = line.trim();
-      } else {
-        // Ignore lines that don't start with a customer name
-        // Reset currentOrderField to start a new order field
-        currentOrderField = '';
-      }
+      // Add non-empty lines as order fields
+      orderFields.push(line.trim());
     } else if (line.toLowerCase().includes(keyword.toLowerCase())) {
       // Set flag to true once keyword is found
       keywordFound = true;
     }
-  }
-
-  // Push the last order field to the array
-  if (currentOrderField !== '') {
-    orderFields.push(currentOrderField.trim());
   }
 
   // Return the array of extracted order fields
